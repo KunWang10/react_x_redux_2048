@@ -1,0 +1,162 @@
+.app{
+    display: block;
+    width: 450px;
+    margin:10px;
+    font-family: arial;
+    background-color: #faf8ef;
+}
+
+.heading{
+    display: block;
+}
+
+.title{
+    width: 50%;
+    font-size: 74px;
+    font-weight: bold;
+    line-height: 66px;
+    margin: 10px;
+    color: #776e65;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+
+}
+.score-container{
+    width: 109px;
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #bbada0;
+    display: inline-block;
+    border-radius: 3px;
+}
+.score-tip{
+    color: #eee4da;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+}
+.score{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+
+.game-intro{
+    display: block;
+    margin-top: 12px;
+    min-height: 55px;
+}
+
+.subtitle {
+    color: #8f7a66;
+    font-size: 17px;
+    font-weight: bold;
+    padding-left:10px;
+}
+
+.restart-container{
+    width: 109px;
+    height: 32px;
+    float: right;
+    text-align: center;
+    background-color: #8f7a66;
+    display: inline-block;
+    border-radius: 3px;
+    color: #f9f6f2;
+    font-size: 17px;
+    padding-top: 12px;
+    cursor: pointer;
+}
+.game-container{
+    width: 426px;
+    height: 426px;
+    margin: 10px 0px;
+    padding: 12px;
+    background: #bbada0;
+    border-radius: 6px;
+}
+.grid-row{
+    height: 97.5px;
+    width:100%;
+}
+
+.grid-col{
+    height: 97px;
+    width: 97px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    float: left;
+}
+
+.grid-col-end{
+    height: 97px;
+    width: 97px;
+    margin-bottom: 12px;
+    float: left;
+}
+
+.tile{
+    height: 78px;
+    font-weight: bold;
+    font-size: 45px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 19px;
+    transition: all 100ms linear;
+}
+.value-zero{
+    background-color: rgba(238, 228, 218, 0.35);
+}
+.value-2{
+    background-color: #eee4da;
+    font-size: 52px;
+}
+.value-4{
+    background-color: #ede0c8;
+    font-size: 52px;
+}
+
+.value-8 {
+    background-color: #f2b179;
+    font-size: 52px;
+}
+
+.value-16 {
+    background-color: #f59563;
+    font-size: 48px;
+}
+
+.value-32 {
+    background-color: #f67c5f;
+    font-size: 48px;
+}
+
+.value-64 {
+    background-color: #f65e3b;
+    font-size: 48px;
+}
+
+.value-128 {
+    background-color: #edcf72;
+    font-size: 44px;
+}
+
+.value-256 {
+    background-color: #edcc61;
+    font-size: 44px;
+}
+
+.value-512 {
+    background-color: #edc850;
+    font-size: 44px;
+}
+
+.value-1024 {
+    background-color: #edc53f;
+    font-size: 40px;
+}
+.value-2048 {
+    background-color: #edc22e;
+    font-size: 40px;
+}
