@@ -1,0 +1,22 @@
+{
+  "name": "react_x_redux_2048",
+  "description": "a react + redux practice",
+  "version": "0.0.1",
+  "dependencies": {
+    "redux": "3.7.2",
+    "react-redux": "5.0.6",
+    "react-dom": "15.6.2",
+    "react": "15.6.2",
+    "prop-types": "15.6.0",
+    "enzyme": "2.9.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
