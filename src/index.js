@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
+import {Provider} from "react-redux"
 import PropTypes from 'prop-types'
 import Board from "./components/Board"
 import reducer from './reducers'
@@ -27,6 +28,10 @@ class Game extends Component {
     const { state, onInit, onUp, onDown, onLeft, onRight } = this.props
     return (
       <div>
+        <h1><p>Score: {state.score}</p></h1>
+
+        <h4>Press Enter or Space to start a new game;</h4>
+        <h4>Press →, ←, ↑, ↓ on your keyboard or click the direction buttons to play this game;</h4>
         <Board boardMatrix={state} />
         
         <p>
@@ -56,12 +61,12 @@ class Game extends Component {
         </button> */}
         </p>
 
-        <p>Score: {state.score}</p>
-        <p>{state.state[0].toString()}</p>
+        {/* <p>{state.state[0].toString()}</p>
         <p>{state.state[1].toString()}</p>
         <p>{state.state[2].toString()}</p>
-        <p>{state.state[3].toString()}</p>
-
+        <p>{state.state[3].toString()}</p> */}
+        
+        
       </div>
     )
   }
@@ -75,8 +80,9 @@ Game.propTypes = {
   onLeft: PropTypes.func.isRequired,
   onRight: PropTypes.func.isRequired
 }
-
 const render = () => ReactDOM.render(
+  <Provider>
+  
   <Game
     state={store.getState()}
     onInit={() => store.dispatch({ type: 32 })}
@@ -84,7 +90,9 @@ const render = () => ReactDOM.render(
     onDown={() => store.dispatch({ type: 40 })}
     onLeft={() => store.dispatch({ type: 37 })}
     onRight={() => store.dispatch({ type: 39 })}
-  />,
+  />       
+  </Provider>
+  ,
   rootEl
 )
 

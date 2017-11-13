@@ -56,7 +56,8 @@ export function moveAndMerge(state, direction) {
 
     if (isEqual(keep, state.state)) {
         console.log("Failed move!")
-        alert("Invalid move!")
+        //TODO: Make this alert soft
+        alert("Invalid move!\n(This should be in the state to make it more user-friendly)")
         return state;
     }
 
@@ -70,7 +71,6 @@ export function moveAndMerge(state, direction) {
     }
 
 }
-
 
 /**
  * 
@@ -276,7 +276,16 @@ function addTile(array) {
 }
 
 
+//TODO: complete following functions
+function isWin(state) {
 
+}
+
+function isLose(state) {
+
+}
+//TODO
+// Enable user to continue the game after they reach 2048
 
 
 
