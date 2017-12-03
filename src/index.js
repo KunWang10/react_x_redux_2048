@@ -14,6 +14,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.invalidMove;
   }
 
   handleKeyDown(event) {
@@ -97,7 +98,7 @@ const render = () => ReactDOM.render(
     onDown={() => store.dispatch({ type: 40 })}
     onLeft={() => store.dispatch({ type: 37 })}
     onRight={() => store.dispatch({ type: 39 })}
-    onNotify={() => toast("Test toast!")}
+    onNotify={() => store.dispatch({ type: "move" })}
   />       
   </Provider>
   ,

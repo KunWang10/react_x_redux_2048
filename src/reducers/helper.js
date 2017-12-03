@@ -1,3 +1,5 @@
+import {toast } from 'react-toastify';
+
 /**
  * Initialize the Game
  * Starting with two random position of 2s OR 
@@ -56,11 +58,12 @@ export function moveAndMerge(state, direction) {
 
     if (isEqual(keep, state.state)) {
         console.log("Failed move!")
-        //TODO: Make this alert soft
-        //alert("Invalid move!\n(This should be in the state to make it more user-friendly)")
+        //toast.dismiss();        
+        toast("Invalid move!");
         return state;
-    }
-
+    } 
+    
+    toast.dismiss();
     let temp = copy(state.state);
     let score = state.score;
     temp = addTile(temp);
