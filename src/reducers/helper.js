@@ -57,7 +57,7 @@ export function moveAndMerge(state, direction) {
     if (isEqual(keep, state.state)) {
         console.log("Failed move!")
         //TODO: Make this alert soft
-        alert("Invalid move!\n(This should be in the state to make it more user-friendly)")
+        //alert("Invalid move!\n(This should be in the state to make it more user-friendly)")
         return state;
     }
 

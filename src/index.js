@@ -5,6 +5,7 @@ import {Provider} from "react-redux"
 import PropTypes from 'prop-types'
 import Board from "./components/Board"
 import reducer from './reducers'
+import { ToastContainer, toast } from 'react-toastify';
 
 const store = createStore(reducer)
 const rootEl = document.getElementById('root')
@@ -25,9 +26,10 @@ class Game extends Component {
   }
 
   render() {
-    const { state, onInit, onUp, onDown, onLeft, onRight } = this.props
+    const { state, onInit, onUp, onDown, onLeft, onRight, onNotify } = this.props
     return (
       <div>
+        <ToastContainer />
         <h1><p>Score: {state.score}</p></h1>
 
         <h4>Press Enter or Space to start a new game;</h4>
@@ -56,6 +58,10 @@ class Game extends Component {
             right
         </button>
           {' '}
+          <button onClick={onNotify}>
+            toast
+        </button>
+          {' '}
           {/* <button onClick={this.upAsync}>
           Increment async
         </button> */}
@@ -78,7 +84,8 @@ Game.propTypes = {
   onUp: PropTypes.func.isRequired,
   onDown: PropTypes.func.isRequired,
   onLeft: PropTypes.func.isRequired,
-  onRight: PropTypes.func.isRequired
+  onRight: PropTypes.func.isRequired,
+  onNotify: PropTypes.func.isRequired
 }
 const render = () => ReactDOM.render(
   <Provider>
@@ -90,6 +97,7 @@ const render = () => ReactDOM.render(
     onDown={() => store.dispatch({ type: 40 })}
     onLeft={() => store.dispatch({ type: 37 })}
     onRight={() => store.dispatch({ type: 39 })}
+    onNotify={() => toast("Test toast!")}
   />       
   </Provider>
   ,
