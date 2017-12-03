@@ -23,7 +23,11 @@ export default (state = {
     case 38:
     case 39:
     case 40:
-      state = Helper.moveAndMerge(state, action.type);
+    case 65:
+    case 68:
+    case 87:    
+    case 83:    
+    state = Helper.moveAndMerge(state, action.type);
       return state;
     case "move":
       state.toast = toast("redux toast!");

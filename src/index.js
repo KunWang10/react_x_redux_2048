@@ -14,7 +14,6 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.invalidMove;
   }
 
   handleKeyDown(event) {
@@ -34,7 +33,7 @@ class Game extends Component {
         <h1><p>Score: {state.score}</p></h1>
 
         <h4>Press Enter or Space to start a new game;</h4>
-        <h4>Press →, ←, ↑, ↓ on your keyboard or click the direction buttons to play this game;</h4>
+        <h4>Press A(←), W(↑), S(↓) and D(→) on your keyboard or click the direction buttons to play this game;</h4>
         <Board boardMatrix={state} />
         
         <p>

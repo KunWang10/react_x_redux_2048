@@ -50,6 +50,7 @@ function setRandomValue() {
  */
 
 export function moveAndMerge(state, direction) {
+
     let keep = copy(state.state);
 
     state = move(state, direction);
@@ -58,7 +59,6 @@ export function moveAndMerge(state, direction) {
 
     if (isEqual(keep, state.state)) {
         console.log("Failed move!")
-        //toast.dismiss();        
         toast("Invalid move!");
         return state;
     } 
@@ -79,10 +79,10 @@ export function moveAndMerge(state, direction) {
  * 
  * @param {Object} state The state before the move
  * @param {number} direction The direction of the move the player made: 
- * left     37
- * up       38
- * right    39
- * down     40
+ * left     37/65
+ * up       38/87
+ * right    39/68
+ * down     40/83
  * @returns {Object} The state after the move
  */
 function move(state, direction) {
@@ -93,6 +93,7 @@ function move(state, direction) {
     let result = [];
     switch (direction) {
         case 37: // left
+        case 65:
             temp.forEach(element => {
                 let after = [];
                 for (let i = 0; i < 4; i++) {
@@ -108,6 +109,7 @@ function move(state, direction) {
 
             break;
         case 38: // up
+        case 87:
             result = state.state;
             for (let j = 0; j < 4; j++) {
                 let after = [];
@@ -127,6 +129,7 @@ function move(state, direction) {
 
             break;
         case 39: // right
+        case 68:
             temp.forEach(element => {
                 let after = [];
                 for (let i = 3; i >= 0; i--) {
@@ -142,6 +145,7 @@ function move(state, direction) {
 
             break;
         case 40: // down
+        case 83:
             result = state.state;
             for (let j = 0; j < 4; j++) {
                 let after = [];
@@ -176,6 +180,7 @@ function merge(state, direction) {
     let temp = copy(state.state);
     switch (direction) {
         case 37: // left
+        case 65:
             for (let i = 0; i < 4; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (temp[i][j] !== 0 && temp[i][j + 1] !== 0 && temp[i][j] === temp[i][j + 1]) {
@@ -187,6 +192,7 @@ function merge(state, direction) {
             }
             break;
         case 38: // up
+        case 87:
             for (let j = 0; j < 4; j++) {
                 for (let i = 0; i < 3; i++) {
                     if (temp[i][j] !== 0 && temp[i + 1][j] !== 0 && temp[i][j] === temp[i + 1][j]) {
@@ -199,6 +205,7 @@ function merge(state, direction) {
 
             break;
         case 39: // right
+        case 68:
             for (let i = 0; i < 4; i++) {
                 for (let j = 3; j > 0; j--) {
                     if (temp[i][j] !== 0 && temp[i][j - 1] !== 0 && temp[i][j] === temp[i][j - 1]) {
@@ -211,6 +218,7 @@ function merge(state, direction) {
 
             break;
         case 40: // down
+        case 83:
             for (let j = 0; j < 4; j++) {
                 for (let i = 3; i > 0; i--) {
                     if (temp[i][j] !== 0 && temp[i - 1][j] !== 0 && temp[i][j] === temp[i - 1][j]) {
@@ -281,7 +289,13 @@ function addTile(array) {
 
 //TODO: complete following functions
 function isWin(state) {
-
+    let max = 0;
+    state.state.forEach(array=>(
+        array.forEach(point=>{
+            max = point > max ? point : max;
+        })
+    ))
+    return (max === 16); 
 }
 
 function isLose(state) {
