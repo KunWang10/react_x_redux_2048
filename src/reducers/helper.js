@@ -1,4 +1,4 @@
-import {toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 /**
  * Initialize the Game
@@ -26,6 +26,7 @@ export function initializeGame() {
     ];
     state[x0][y0] = setRandomValue();
     state[x1][y1] = state[x0][y0] === 4 ? 2 : setRandomValue();
+
     return state;
 }
 
@@ -61,16 +62,18 @@ export function moveAndMerge(state, direction) {
         console.log("Failed move!")
         toast("Invalid move!");
         return state;
-    } 
-    
+    }
+
     toast.dismiss();
     let temp = copy(state.state);
     let score = state.score;
+    let target = state.target;
     temp = addTile(temp);
 
     return {
         state: temp,
-        score: score
+        score: score,
+        target: target
     }
 
 }
@@ -88,6 +91,7 @@ export function moveAndMerge(state, direction) {
 function move(state, direction) {
 
     let score = state.score;
+    let target = state.target;    
     //let keep = copy(state.state);
     let temp = copy(state.state);
     let result = [];
@@ -170,13 +174,15 @@ function move(state, direction) {
 
     return {
         state: result,
-        score: score
+        score: score,
+        target: target
     };
 
 }
 
 function merge(state, direction) {
     let score = state.score;
+    let target = state.target;    
     let temp = copy(state.state);
     switch (direction) {
         case 37: // left
@@ -236,7 +242,8 @@ function merge(state, direction) {
 
     return {
         state: temp,
-        score: score
+        score: score,
+        target: target
     }
 
 }
@@ -288,14 +295,25 @@ function addTile(array) {
 
 
 //TODO: complete following functions
-function isWin(state) {
+export function isWin(state) {
     let max = 0;
-    state.state.forEach(array=>(
-        array.forEach(point=>{
+    state.state.forEach(array => (
+        array.forEach(point => {
             max = point > max ? point : max;
         })
     ))
-    return (max === 16); 
+    return (max === state.target);
+}
+
+export function doubleTarget(state) {
+    let temp = state.state;
+    let score = state.score;
+    let target = state.target * 2;
+    return {
+        state: temp,
+        score: score,
+        target: target
+    }
 }
 
 function isLose(state) {
